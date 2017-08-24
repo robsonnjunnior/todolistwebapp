@@ -9,7 +9,7 @@ const URL = 'http://ec2-34-224-69-89.compute-1.amazonaws.com:8000/api'
 
 export default class Todo extends Component {
 
-    state = { description: '', list: [], isLoading: false}
+    state = { description: '', list: [], isLoading: false, switched: false}
 
     componentDidMount(){
       this.refresh()
@@ -76,6 +76,10 @@ export default class Todo extends Component {
       axios.post(URL + '/update', task).then(resp => this.refresh())
 
     }
+
+    toggleSwitch = () => {
+        console.log('trocou')
+      }
 
     render(){
       const { isLoading } = this.state;
